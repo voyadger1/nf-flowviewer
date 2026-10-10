@@ -1,0 +1,21 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+.idea
+.nextflow*
+
+# Ignore Gradle build output directory
+build
+work
+
+# macOS
+.DS_Store
+
+# Validation runtime artifacts (pipeline runs generate these)
+validation/.nextflow*
+validation/work/
+validation/results/
+
+# Nextflow runtime
+.nextflow*
+work/
+results/
