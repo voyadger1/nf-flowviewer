@@ -32,10 +32,14 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
+      - name: Configure Nextflow Registry credentials
+        run: |
+          mkdir -p ~/.gradle
+          echo "npr.apiKey=${{ secrets.NEXTFLOW_REGISTRY_TOKEN }}" >> ~/.gradle/gradle.properties
+
       - name: Run Release and Upload
         run: |
           chmod +x ./gradlew
-          ./gradlew releasePluginToRegistry
+          ./gradlew releasePlugin
         env:
-          ORG_GRADLE_PROJECT_npr.apiKey: ${{ secrets.NEXTFLOW_REGISTRY_TOKEN }}
-          ORG_GRADLE_PROJECT_npr.apiUrl: "https://registry.nextflow.io/api"
+          NPR_API_KEY: ${{ secrets.NEXTFLOW_REGISTRY_TOKEN }}
