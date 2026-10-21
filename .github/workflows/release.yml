@@ -1,0 +1,41 @@
+name: Production Release & Publish
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  publish-plugin:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify branch is master
+        run: |
+          # Ищем, входит ли текущий коммит-тег в удаленную ветку origin/master
+          if git branch -r --contains HEAD | grep -E '(^|\s)origin/master$'; then
+            echo "✅ Validation passed: Tag is placed on 'master' branch."
+          else
+            echo "❌ ERROR: Releasing tags from branches other than 'master' is forbidden!"
+            exit 1
+          fi
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'gradle'
+
+      - name: Run Release and Upload
+        run: |
+          chmod +x ./gradlew
+          ./gradlew releasePluginToRegistry
+        env:
+          ORG_GRADLE_PROJECT_npr.apiKey: ${{ secrets.NEXTFLOW_REGISTRY_TOKEN }}
+          ORG_GRADLE_PROJECT_npr.apiUrl: "https://registry.nextflow.io/api"
