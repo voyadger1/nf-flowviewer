@@ -1,4 +1,4 @@
-![706shots_so.png](docs/img/706shots_so.png)
+![706shots_so.png](promo/img/706shots_so.png)
 
 # nf-flowviewer
 
