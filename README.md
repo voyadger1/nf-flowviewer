@@ -141,6 +141,15 @@ If the plugin does not find a file with the corresponding name, it will use the 
 * [WebView Github](https://github.com/voyadger1/flow-viewer)
 * [NextFlow registry](https://registry.nextflow.io/plugins/nf-flowviewer)
 
+## Contact
+
+You can contact me to collaborate on a project. I am open to job offers.
+
+* **Author**: Alexey Kucherenko
+* **Email**: antidot237@gmail.com
+* **Telegram**: [rosetomorrow](https://t.me/rosetomorrow)
+* **X (Twitter)**: [voyadgerodin](https://x.com/voyadgerodin)
+
 ## License
 
 Apache 2.0. See [LICENSE](LICENSE).
