@@ -139,6 +139,7 @@ If the plugin does not find a file with the corresponding name, it will use the 
 
 * [Docker image](https://hub.docker.com/repository/docker/voyadger1/flow-viewer/general)
 * [WebView Github](https://github.com/voyadger1/flow-viewer)
+* [NextFlow registry](https://registry.nextflow.io/plugins/nf-flowviewer)
 
 ## License
 
